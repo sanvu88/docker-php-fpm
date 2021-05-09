@@ -39,6 +39,7 @@ RUN apt-get update && apt-get upgrade -y \
     pdo_mysql \
     pdo_pgsql \
     pgsql \
+    json \
     soap \
     sockets \
     xmlrpc \
@@ -65,8 +66,9 @@ RUN apt-get update && apt-get upgrade -y \
 
 RUN touch /usr/local/etc/php/conf.d/opcache-default.blacklist
 
-COPY php-fpm.conf /usr/local/etc/
-COPY php.ini /usr/local/etc/php/
-COPY 00-hostvn-custom.ini /usr/local/etc/php/conf.d
-COPY docker-php-ext-opcache.ini /usr/local/etc/php/conf.d
-COPY www.conf /usr/local/etc/php-fpm.d
+COPY ../config/php-fpm.conf /usr/local/etc/
+COPY ../config/php.ini /usr/local/etc/php/
+COPY ../config/00-hostvn-custom.ini /usr/local/etc/php/conf.d
+COPY ../config/docker-php-ext-opcache.ini /usr/local/etc/php/conf.d
+COPY ../config/www.conf /usr/local/etc/php-fpm.d
+COPY ../config/pool.conf.example /usr/local/etc/php-fpm.d
