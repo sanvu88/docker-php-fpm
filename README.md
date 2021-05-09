@@ -77,7 +77,7 @@ Hostvn.net Docker PHP-FPM is developed based on the PHP Docker official, not onl
 <h2>Custom config</h2>
 
 - Opcache config: <b>/usr/local/etc/php/conf.d/docker-php-ext-opcache.ini</b>
-- Opcache blacklist: /usr/local/etc/php/conf.d/opcache-default.blacklist</b>
+- Opcache blacklist: <b>/usr/local/etc/php/conf.d/opcache-default.blacklist</b>
 - <b>/usr/local/etc/php/conf.d/00-hostvn-custom.ini</b>
 - You can refer to the php configuration for the website in the file: <b>/usr/local/etc/php-fpm.d/pool.conf.example</b>
 
