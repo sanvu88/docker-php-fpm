@@ -4,7 +4,7 @@
 
 #####################################################################################
 
-## About Hostvn.net Docker Nginx
+## About Hostvn.net Docker PHP-FPM
 
 Hostvn.net Docker PHP-FPM is developed based on the PHP Docker official, not only inherits the advantages of PHP Docker official but also helps to customize the configuration and add some extensions.
 
@@ -76,14 +76,14 @@ Hostvn.net Docker PHP-FPM is developed based on the PHP Docker official, not onl
 
 <h2>Custom config</h2>
 
-- Opcache config: /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini
-- Opcache blacklist: /usr/local/etc/php/conf.d/opcache-default.blacklist
-- /usr/local/etc/php/conf.d/00-hostvn-custom.ini
-- You can refer to the php configuration for the website in the file: /usr/local/etc/php-fpm.d/pool.conf.example
+- Opcache config: <b>/usr/local/etc/php/conf.d/docker-php-ext-opcache.ini</b>
+- Opcache blacklist: /usr/local/etc/php/conf.d/opcache-default.blacklist</b>
+- <b>/usr/local/etc/php/conf.d/00-hostvn-custom.ini</b>
+- You can refer to the php configuration for the website in the file: <b>/usr/local/etc/php-fpm.d/pool.conf.example</b>
 
 <h2>Disable functions</h2>
 
-Edit in /usr/local/etc/php/conf.d/00-hostvn-custom.ini
+Edit in <b>/usr/local/etc/php/conf.d/00-hostvn-custom.ini</b>
 
 <code>exec,system,passthru,shell_exec,proc_close,proc_open,dl,popen,show_source,posix_kill,posix_mkfifo,posix_getpwuid,posix_setpgid,posix_setsid,posix_setuid,posix_setgid,posix_seteuid,posix_setegid,posix_uname</code>
 
