@@ -1,4 +1,4 @@
-FROM php:7.4-fpm
+FROM php:7.4.19-fpm
 
 LABEL maintainer="Sanvv - Hostvn Technical <sanvv@hostvn.com>"
 
@@ -57,12 +57,18 @@ RUN apt-get update && apt-get upgrade -y \
     && pecl install memcached && docker-php-ext-enable memcached \
     && pecl install mongodb && docker-php-ext-enable mongodb \
     && pecl install redis && docker-php-ext-enable redis \
-    && yes '' | pecl install imagick && docker-php-ext-enable imagick \
-    && docker-php-source delete \
-    && apt-get remove -y g++ wget \
-    && apt-get autoremove --purge -y && apt-get autoclean -y && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/* \
-    && rm -rf /tmp/* /var/tmp/*
+    && yes '' | pecl install imagick && docker-php-ext-enable imagick
+
+RUN curl -sS https://getcomposer.org/installer | php
+RUN mv composer.phar /usr/local/bin/composer
+RUN wget https://getcomposer.org/download/1.10.22/composer.phar
+RUN mv composer.phar /usr/local/bin/composer1 && chmod +x /usr/local/bin/composer1
+
+RUN docker-php-source delete \
+        && apt-get remove -y g++ wget \
+        && apt-get autoremove --purge -y && apt-get autoclean -y && apt-get clean -y \
+        && rm -rf /var/lib/apt/lists/* \
+        && rm -rf /tmp/* /var/tmp/*
 
 RUN touch /usr/local/etc/php/conf.d/opcache-default.blacklist
 

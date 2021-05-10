@@ -13,6 +13,11 @@ Hostvn.net Docker PHP-FPM is developed based on the PHP Docker official, not onl
 - Maintained by: <a href="https://hostvn.net">Hostvn.net</a>
 - Docker hub:
 - PHP Official: https://hub.docker.com/_/php
+- Composer: https://getcomposer.org/
+
+<h2>Supported tags</h2>
+
+- latest, 8.0.6, 7.4.19
 
 <h2>PHP Extensions</h2>
 
@@ -32,7 +37,7 @@ Hostvn.net Docker PHP-FPM is developed based on the PHP Docker official, not onl
 - gettext
 - hash
 - iconv
-- imagick
+- imagick (PHP 7)
 - imap
 - intl
 - json
@@ -78,7 +83,7 @@ Hostvn.net Docker PHP-FPM is developed based on the PHP Docker official, not onl
 
 - Opcache config: <b>/usr/local/etc/php/conf.d/docker-php-ext-opcache.ini</b>
 - Opcache blacklist: <b>/usr/local/etc/php/conf.d/opcache-default.blacklist</b>
-- <b>/usr/local/etc/php/conf.d/00-hostvn-custom.ini</b>
+- Edit php parameters in: <b>/usr/local/etc/php/conf.d/00-hostvn-custom.ini</b>
 - You can refer to the php configuration for the website in the file: <b>/usr/local/etc/php-fpm.d/pool.conf.example</b>
 
 <h2>Disable functions</h2>
@@ -86,6 +91,13 @@ Hostvn.net Docker PHP-FPM is developed based on the PHP Docker official, not onl
 Edit in <b>/usr/local/etc/php/conf.d/00-hostvn-custom.ini</b>
 
 <code>exec,system,passthru,shell_exec,proc_close,proc_open,dl,popen,show_source,posix_kill,posix_mkfifo,posix_getpwuid,posix_setpgid,posix_setsid,posix_setuid,posix_setgid,posix_seteuid,posix_setegid,posix_uname</code>
+
+<h2>Composer</h2>
+
+Install two versions of composer.
+
+- To use composer 2 run the command: <b>composer</b>
+- To use composer 1 run the command: <b>composer1</b>
 
 <h2>Using:</h2>
 
