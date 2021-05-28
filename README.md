@@ -17,7 +17,7 @@ Hostvn.net Docker PHP-FPM is developed based on the PHP Docker official, not onl
 
 <h2>Supported tags</h2>
 
-- latest, 8.0.6, 7.4.19
+- latest, 8.0.6, 7.4.19, 7.3.28
 
 <h2>PHP Extensions</h2>
 
