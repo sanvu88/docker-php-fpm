@@ -15,6 +15,7 @@ RUN apt-get update && apt-get upgrade -y \
         libkrb5-dev \
         libldap2-dev \
         libldb-dev \
+        libwebp-dev \
         libmagickwand-dev \
         libmcrypt-dev \
         libmemcached-dev \
@@ -41,7 +42,7 @@ RUN apt-get update && apt-get upgrade -y \
         soap \
         sockets \
         xsl \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
     && docker-php-ext-install -j$(nproc) gd \
     && PHP_OPENSSL=yes docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
     && docker-php-ext-install -j$(nproc) imap \
@@ -50,10 +51,18 @@ RUN apt-get update && apt-get upgrade -y \
     && docker-php-ext-configure ldap \
     && docker-php-ext-install ldap \
     && docker-php-ext-configure zip \
-    && docker-php-ext-install zip \
-    && pecl install memcached && docker-php-ext-enable memcached \
-    && pecl install mongodb && docker-php-ext-enable mongodb \
-    && pecl install redis && docker-php-ext-enable redis
+    && docker-php-ext-install zip
+#    && pecl install memcached && docker-php-ext-enable memcached \
+#    && pecl install mongodb && docker-php-ext-enable mongodb \
+#    && pecl install redis && docker-php-ext-enable redis
+
+RUN pecl install ds && \
+    pecl install igbinary && \
+    pecl install redis && \
+    pecl install memcached && \
+    docker-php-ext-enable ds igbinary redis memcached
+
+RUN pecl install mongodb && docker-php-ext-enable mongodb
 
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
