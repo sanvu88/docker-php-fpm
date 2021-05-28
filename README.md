@@ -78,6 +78,7 @@ Hostvn.net Docker PHP-FPM is developed based on the PHP Docker official, not onl
 - Zend OPcache
 - zip
 - zlib
+- igbinary
 
 <h2>Custom config</h2>
 
