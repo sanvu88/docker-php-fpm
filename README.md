@@ -102,6 +102,8 @@ Install two versions of composer.
 
 <h2>Using:</h2>
 
-<code>docker run --name php --restart always -d hostvn/hostvn.net-php-fpm</code>
+```html
+docker run --name php -h php --restart always -v /root/web:/var/www/html -d hostvn/hostvn.net-php-fpm
+```
 
 You can refer to how to use here: https://hub.docker.com/_/php
